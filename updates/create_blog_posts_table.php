@@ -29,13 +29,27 @@ class CreateBlogPostsTable extends Migration
         {
             Schema::table('rainlab_blog_posts', function($table)
             {
-                $table->dropColumn('seo_title');
-                $table->dropColumn('seo_description');
-                $table->dropColumn('seo_keywords');
-                $table->dropColumn('canonical_url');
-                $table->dropColumn('redirect_url');
-                $table->dropColumn('robot_index');
-                $table->dropColumn('robot_follow');
+				if (Schema::hasColumn('rainlab_blog_posts', 'seo_title')) {
+					$table->dropColumn('seo_title');
+				}
+				if (Schema::hasColumn('rainlab_blog_posts', 'seo_description')) {
+					$table->dropColumn('seo_description');
+				}
+				if (Schema::hasColumn('rainlab_blog_posts', 'seo_keywords')) {
+					$table->dropColumn('seo_keywords');
+				}
+				if (Schema::hasColumn('rainlab_blog_posts', 'canonical_url')) {
+					$table->dropColumn('canonical_url');
+				}
+				if (Schema::hasColumn('rainlab_blog_posts', 'redirect_url')) {
+					$table->dropColumn('redirect_url');
+				}
+				if (Schema::hasColumn('rainlab_blog_posts', 'robot_index')) {
+					$table->dropColumn('robot_index');
+				}
+				if (Schema::hasColumn('rainlab_blog_posts', 'robot_follow')) {
+					$table->dropColumn('robot_follow');
+				}
             });
         }
 
